@@ -3,21 +3,19 @@
  * The main plugin file
  *
  * @package WordPress_Plugins
- * @subpackage OS_Disable_WordPress_Updates
+ * @subpackage Disable_WordPress_Updates_Plus
  */
 
 /*
 Plugin Name: Disable All WordPress Updates
 Description: Disables the theme, plugin and core update checking, the related cronjobs and notification system.
-Plugin URI:  https://wordpress.org/plugins/disable-wordpress-updates/
-Version:     1.7.0
-Author:      Oliver Schlöbe
+Plugin URI:  https://github.com/managingwp/disable-wordpress-updates-plus
+Version:     1.7.1
+Author:      Oliver Schlöbe + Jordantrizz
 Author URI:  https://www.schloebe.de/
-Text Domain: disable-wordpress-updates
+Text Domain: disable-wordpress-updates-plus
 Domain Path: /languages
 License:	 GPL2
-
-Copyright 2013-2021 Oliver Schlöbe (email : wordpress@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -34,25 +32,23 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
-
 /**
  * Define the plugin version
  */
-define("OSDWPUVERSION", "1.7.0");
+define("DWPUP_VERSION", "1.7.1");
 
 
 /**
- * The OS_Disable_WordPress_Updates class
+ * The Disable_WordPress_Updates_Plus class
  *
  * @package 	WordPress_Plugins
- * @subpackage 	OS_Disable_WordPress_Updates
+ * @subpackage 	Disable_WordPress_Updates_Plus
  * @since 		1.3
  * @author 		scripts@schloebe.de
  */
-class OS_Disable_WordPress_Updates {
+class Disable_WordPress_Updates_Plus {
 	/**
-	 * The OS_Disable_WordPress_Updates class constructor
+	 * The Disable_WordPress_Updates_Plus class constructor
 	 * initializing required stuff for the plugin
 	 *
 	 * PHP 5 Constructor
@@ -135,7 +131,6 @@ class OS_Disable_WordPress_Updates {
 
 		add_filter( 'pre_http_request', array($this, 'block_request'), 10, 3 );
 	}
-
 
 	/**
 	 * Initialize and load the plugin stuff
@@ -230,8 +225,6 @@ class OS_Disable_WordPress_Updates {
 		remove_all_filters( 'plugins_api' );
 	}
 
-
-
 	/**
 	 * Hide update checks in the Site Health screen
 	 *
@@ -242,8 +235,6 @@ class OS_Disable_WordPress_Updates {
 		unset( $tests['direct']['plugin_theme_auto_updates'] );
 		return $tests;
 	}
-
-
 
 	/**
 	 * Add notice to admin bar when plugin is active
@@ -268,8 +259,6 @@ class OS_Disable_WordPress_Updates {
 		));
 	}
 
-
-
 	/**
 	 * Apply CSS styles to admin bar notice
 	 *
@@ -278,7 +267,6 @@ class OS_Disable_WordPress_Updates {
 	public function admin_css_overrides() {
 		wp_add_inline_style( 'admin-bar', '.wp-admin-bar-dwuos-notice { background-color: rgba(190, 0, 0, 0.4) !important; } .wp-admin-bar-dwuos-notice .dashicons { font-family: dashicons !important; }' );
 	}
-
 
 	/**
 	 * Check the outgoing request
@@ -306,7 +294,6 @@ class OS_Disable_WordPress_Updates {
 		return $pre;
 	}
 
-
 	/**
 	 * Filter cron events
 	 *
@@ -323,7 +310,6 @@ class OS_Disable_WordPress_Updates {
 		}
 		return $event;
 	}
-	
 	
 	/**
 	 * Override version check info
@@ -342,6 +328,7 @@ class OS_Disable_WordPress_Updates {
 	}
 }
 
-if ( class_exists('OS_Disable_WordPress_Updates') ) {
-	$OS_Disable_WordPress_Updates = new OS_Disable_WordPress_Updates();
+
+if ( class_exists('Disable_WordPress_Updates_Plus') ) {
+	$Disable_WordPress_Updates_Plus = new Disable_WordPress_Updates_Plus();
 }

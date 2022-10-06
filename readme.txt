@@ -1,5 +1,5 @@
-=== Disable All WordPress Updates ===
-Contributors: Alphawolf
+=== Disable All WordPress Updates Plus ===
+Contributors: jordantrizz, Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: disable, updates, theme, core, auto-update, update-check, version-check, browse-happy, serve-happy
 Requires at least: 3.8
@@ -8,10 +8,13 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
+A fork of https://github.com/oliverschloebe/disable-wordpress-updates that provides options to enable or disable features. 
+
 Disables the theme, plugin and core update checking, the related cronjobs, plugin/theme update health checks and notification system.
 
 == Description ==
 
+Original Description:
 This plugin completely disables the theme, plugin and core update checking system in WordPress. The plugin prevents WordPress from
 checking for updates including cronjobs, and prevents any notifications from being displayed.
 
@@ -20,11 +23,6 @@ be **susceptible to security vulnerabilities** or performance issues.
 
 If you use this plugin, make sure you keep yourself up to date with new releases of your active WordPress version, plugins
 and themes and update them as new versions are released (simply by deactivating this plugin for a short time).
-
-[Developer on Twitter](https://twitter.com/wpseek "Developer on Twitter")
-
-**Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](https://www.schloebe.de/portfolio/)**
-
 
 == Frequently Asked Questions ==
 
@@ -50,6 +48,9 @@ None. :)
 
 
 == Changelog ==
+
+= 1.7.1 =
+* Forked and options menu created to enable and disable features.
 
 = 1.7.0 =
 * Added admin bar notice when plugin is enabled to remember admins that WordPress updates are disabled (thanks zimisun!)
